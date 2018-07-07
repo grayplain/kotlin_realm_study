@@ -39,7 +39,9 @@ class JokeListFragment : Fragment() {
                     columnCount <= 1 -> LinearLayoutManager(context)
                     else -> GridLayoutManager(context, columnCount)
                 }
-                adapter = MyJokeListRecyclerViewAdapter(DummyContent.ITEMS, listener)
+                adapter = MyJokeListRecyclerViewAdapter(DummyContent.ITEMS,
+                                                mutableListOf(false,false,false,false,false,
+                                            false,false,false,false,false), listener)
             }
         }
         return view

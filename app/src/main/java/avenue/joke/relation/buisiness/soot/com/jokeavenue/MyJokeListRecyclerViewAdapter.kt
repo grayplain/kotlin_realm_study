@@ -14,13 +14,11 @@ import avenue.joke.relation.buisiness.soot.com.jokeavenue.dummy.DummyContent.Dum
 
 class MyJokeListRecyclerViewAdapter(
         private val mValues: List<DummyItem>,
+        private var expandHolderFlags: MutableList<Boolean>,
         private val mListener: OnListFragmentInteractionListener?)
     : RecyclerView.Adapter<JokeViewHolder>() {
 
     private val mOnClickListener: View.OnClickListener
-
-    private var hogei = false
-    private var hogeiHeight = 0
 
     init {
         mOnClickListener = View.OnClickListener { v ->
@@ -28,6 +26,12 @@ class MyJokeListRecyclerViewAdapter(
             // Notify the active callbacks interface (the activity, if the fragment is attached to
             // one) that an item has been selected.
             mListener?.onListFragmentInteraction(item)
+        }
+    }
+
+    fun clearExpandHolderFlags() {
+        for(i in expandHolderFlags.indices) {
+            expandHolderFlags[i] = false
         }
     }
 
@@ -45,25 +49,27 @@ class MyJokeListRecyclerViewAdapter(
         layoutId = R.layout.viewholder_joke_expansion
 
         val view = LayoutInflater.from(parent.context).inflate(layoutId, parent, false)
+        var viewHolder = JokeViewHolder(view)
 
         view.setOnClickListener {
             //FIXME: ここに直接タップイベント内部の処理を書くべきではない（こいつの責務外)
-            Log.v(10.toString(), "clicked")
-            hogei = !hogei
+
+            val pos = viewHolder.adapterPosition
+            expandHolderFlags[pos] = !expandHolderFlags[pos]
 
              //TODO: これは viewHolderクラスの担当だな
-            if(hogei) {
-                val collapseAnimation = ResizeAnimation(view,-1300,hogeiHeight)
+            if(expandHolderFlags[pos]) {
+                val collapseAnimation = ResizeAnimation(view,-550,700)
                 collapseAnimation.duration = 300
                 view.startAnimation(collapseAnimation)
             } else {
-                val expandAnimation = ResizeAnimation(view,1300,hogeiHeight)
+                val expandAnimation = ResizeAnimation(view,550,150)
                 expandAnimation.duration = 300
                 view.startAnimation(expandAnimation)
 
             }
         }
-        return JokeViewHolder(view)
+        return viewHolder
     }
 
     override fun getItemViewType(position: Int): Int {
@@ -72,10 +78,7 @@ class MyJokeListRecyclerViewAdapter(
 
     override fun onBindViewHolder(holder: JokeViewHolder, position: Int) {
         Log.v(10.toString(), "onBindViewHolder")
-        val aaa = holder.itemView.measuredHeight
-        val bbb = holder.itemView.height
-        val ccc = holder.itemView.measuredHeightAndState
     }
 
-    override fun getItemCount(): Int = 1
+    override fun getItemCount(): Int = 10
 }
