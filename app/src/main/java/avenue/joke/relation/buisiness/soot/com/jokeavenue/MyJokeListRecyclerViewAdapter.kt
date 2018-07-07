@@ -1,12 +1,11 @@
 package avenue.joke.relation.buisiness.soot.com.jokeavenue
 
-import android.animation.AnimatorInflater
-import android.content.Context
 import android.support.v7.widget.RecyclerView
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 
 
 import avenue.joke.relation.buisiness.soot.com.jokeavenue.JokeListFragment.OnListFragmentInteractionListener
@@ -57,13 +56,16 @@ class MyJokeListRecyclerViewAdapter(
             val pos = viewHolder.adapterPosition
             expandHolderFlags[pos] = !expandHolderFlags[pos]
 
+            val longe = viewHolder.itemView.findViewById<TextView>(R.id.jokeTextView)
+            val longeHeight = longe.height
+            val longeMeasuredHeight = longe.measuredHeight
              //TODO: これは viewHolderクラスの担当だな
             if(expandHolderFlags[pos]) {
-                val collapseAnimation = ResizeAnimation(view,-550,700)
+                val collapseAnimation = ResizeAnimation(longe,-400,500)
                 collapseAnimation.duration = 300
                 view.startAnimation(collapseAnimation)
             } else {
-                val expandAnimation = ResizeAnimation(view,550,150)
+                val expandAnimation = ResizeAnimation(longe,400,150)
                 expandAnimation.duration = 300
                 view.startAnimation(expandAnimation)
 
