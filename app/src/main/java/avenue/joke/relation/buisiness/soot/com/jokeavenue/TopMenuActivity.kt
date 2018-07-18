@@ -1,11 +1,11 @@
 package avenue.joke.relation.buisiness.soot.com.jokeavenue
 
 import android.os.Bundle
-import android.support.design.widget.BottomNavigationView
 import android.support.v7.app.AppCompatActivity
+import android.util.Log
 import avenue.joke.relation.buisiness.soot.com.jokeavenue.JokeAvenueRealm.JAJokeObject
 import io.realm.Realm
-import kotlinx.android.synthetic.main.activity_top_menu.*
+import io.realm.RealmConfiguration
 import java.util.*
 
 class TopMenuActivity : AppCompatActivity() {
@@ -39,6 +39,25 @@ class TopMenuActivity : AppCompatActivity() {
         val test = Realm.getDefaultInstance().where(JAJokeObject::class.java).findAll()
         var aaa = test[0]?.jokeText
         */
+        loadRealmDB()
+    }
+
+    fun loadRealmDB() {
+        Realm.init(this)
+
+        val hhhoooogggeee = assets.list("")
+
+        //val conf = RealmConfiguration.Builder().assetFile("JAJokeDB.realm").readOnly().build()
+        val conf = RealmConfiguration.Builder().assetFile("pokemon.realm")
+                .name("pokemon.realm")
+                .schemaVersion(1)
+                .readOnly()
+                .build()
+
+        Realm.setDefaultConfiguration(conf)
+        val realmInstance = Realm.getDefaultInstance()
+        //val hoge = realmInstance.where(JAJokeObject::class.java).findAll()
+        Log.d("hoge","huga")
     }
 
     //
