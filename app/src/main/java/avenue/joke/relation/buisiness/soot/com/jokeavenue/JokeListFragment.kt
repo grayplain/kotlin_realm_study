@@ -9,9 +9,8 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-
-import avenue.joke.relation.buisiness.soot.com.jokeavenue.dummy.DummyContent
-import avenue.joke.relation.buisiness.soot.com.jokeavenue.dummy.DummyContent.DummyItem
+import avenue.joke.relation.buisiness.soot.com.jokeavenue.JokeAvenueRealm.JAJokeObject
+import io.realm.Realm
 
 class JokeListFragment : Fragment() {
 
@@ -35,7 +34,10 @@ class JokeListFragment : Fragment() {
                     columnCount <= 1 -> LinearLayoutManager(context)
                     else -> GridLayoutManager(context, columnCount)
                 }
-                adapter = MyJokeListRecyclerViewAdapter(DummyContent.ITEMS,
+
+                val mojimojiKun = Realm.getDefaultInstance().where(JAJokeObject::class.java).findAll()
+
+                adapter = MyJokeListRecyclerViewAdapter(mojimojiKun,
                                                 mutableListOf(false,false,false,false,false,
                                             false,false,false,false,false), listener)
             }
@@ -50,6 +52,6 @@ class JokeListFragment : Fragment() {
 
     interface OnListFragmentInteractionListener {
         // TODO: Update argument type and name
-        fun onListFragmentInteraction(item: DummyItem?)
+        //fun onListFragmentInteraction(item: DummyItem?)
     }
 }
