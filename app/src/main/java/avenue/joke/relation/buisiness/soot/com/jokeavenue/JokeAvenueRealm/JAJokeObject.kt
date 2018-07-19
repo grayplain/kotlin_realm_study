@@ -9,11 +9,13 @@ import java.util.*
 
 
 //アクセス修飾子を open にしないといかんらしい。
-open class JAJokeObject(
-        @PrimaryKey open var id: String = UUID.randomUUID().toString(),
-        @Required open var jokeTitle: String = "",
-        open var jokeText: String = "",
-        open var hoge: Int = 0,
-        open var huga: Int = 0
 
-    ): RealmObject() {}
+open class JAJokeObject : RealmObject() {
+
+    var id: String? = null
+    var jokeTitle: String? = null
+    var jokeText: String? = null
+    var hoge: Long? = null
+    var huga: Long? = null
+
+}
