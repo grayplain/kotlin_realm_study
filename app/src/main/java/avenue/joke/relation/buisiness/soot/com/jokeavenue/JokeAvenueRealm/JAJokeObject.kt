@@ -15,7 +15,6 @@ open class JAJokeObject : RealmObject() {
     var id: String? = null
     var jokeTitle: String? = null
     var jokeText: String? = null
-    var hoge: Long? = null
-    var huga: Long? = null
+    var category: Long? = null
 
 }

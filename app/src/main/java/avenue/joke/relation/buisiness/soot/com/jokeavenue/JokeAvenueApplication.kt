@@ -16,7 +16,8 @@ class JokeAvenueApplication: Application() {
         Realm.init(this)
 
         val DBName = "JAJokeDB.realm"
-        val conf = RealmConfiguration.Builder().assetFile(DBName)
+        val conf = RealmConfiguration.Builder()
+                .assetFile(DBName)
                 .name(DBName)
                 .schemaVersion(1)
                 .readOnly()

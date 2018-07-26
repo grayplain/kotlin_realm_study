@@ -38,8 +38,8 @@ class JokeListFragment : Fragment() {
                 val mojimojiKun = Realm.getDefaultInstance().where(JAJokeObject::class.java).findAll()
 
                 adapter = MyJokeListRecyclerViewAdapter(mojimojiKun,
-                                                mutableListOf(false,false,false,false,false,
-                                            false,false,false,false,false), listener)
+                                                        BooleanArray(size = mojimojiKun.count()),
+                                                        listener)
             }
         }
         return view
