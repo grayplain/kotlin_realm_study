@@ -35,7 +35,7 @@ class JokeListFragment : Fragment() {
                     else -> GridLayoutManager(context, columnCount)
                 }
 
-                val mojimojiKun = Realm.getDefaultInstance().where(JAJokeObject::class.java).findAll()
+                val mojimojiKun = JokeDataFetcher().fetchMasterJokeData(word = "医師",category = "")
 
                 adapter = MyJokeListRecyclerViewAdapter(mojimojiKun,
                                                         BooleanArray(size = mojimojiKun.count()),
