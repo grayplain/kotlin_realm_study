@@ -6,6 +6,8 @@ import android.support.v4.app.Fragment
 import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import android.support.v7.widget.SearchView
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -26,6 +28,24 @@ class JokeListFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_jokelist_list, container, false)
+
+        //TODO:
+        var searchView =
+        /*
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(text: String?): Boolean {
+                // 検索キーが押下された
+                Log.d("hog", "submit text: $text")
+                return false
+            }
+
+            override fun onQueryTextChange(text: String?): Boolean {
+                // テキストが変更された
+                Log.d("hog", "change text: $text")
+                return false
+            }
+        })
+        */
 
         // Set the adapter
         if (view is RecyclerView) {

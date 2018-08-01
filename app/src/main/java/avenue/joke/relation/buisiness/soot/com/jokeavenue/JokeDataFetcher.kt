@@ -12,6 +12,6 @@ class JokeDataFetcher() {
     }
 
     fun fetchMasterJokeData(word: String,category: String, limit: Int = 10): RealmResults<JAJokeObject> {
-        return Realm.getDefaultInstance().where(JAJokeObject::class.java).like("jokeText",word).findAll()
+        return Realm.getDefaultInstance().where(JAJokeObject::class.java).contains("jokeText",word).findAll()
     }
 }
