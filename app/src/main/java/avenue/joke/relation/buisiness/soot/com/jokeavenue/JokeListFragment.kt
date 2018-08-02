@@ -1,18 +1,14 @@
 package avenue.joke.relation.buisiness.soot.com.jokeavenue
 
-import android.content.Context
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.SearchView
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import avenue.joke.relation.buisiness.soot.com.jokeavenue.JokeAvenueRealm.JAJokeObject
-import io.realm.Realm
 
 class JokeListFragment : Fragment() {
 
@@ -27,10 +23,10 @@ class JokeListFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-        val view = inflater.inflate(R.layout.fragment_jokelist_list, container, false)
+        val jokeListView = inflater.inflate(R.layout.fragment_jokelist_list, container, false)
 
-        //TODO:
-        var searchView =
+        val topJokeSearchView = activity?.findViewById<SearchView>(R.id.joke_searchview)
+
         /*
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(text: String?): Boolean {
@@ -48,8 +44,8 @@ class JokeListFragment : Fragment() {
         */
 
         // Set the adapter
-        if (view is RecyclerView) {
-            with(view) {
+        if (jokeListView is RecyclerView) {
+            with(jokeListView) {
                 layoutManager = when {
                     columnCount <= 1 -> LinearLayoutManager(context)
                     else -> GridLayoutManager(context, columnCount)
@@ -62,7 +58,7 @@ class JokeListFragment : Fragment() {
                                                         listener)
             }
         }
-        return view
+        return jokeListView
     }
 
     override fun onDetach() {
