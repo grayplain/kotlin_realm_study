@@ -6,6 +6,6 @@ import android.support.v7.app.AppCompatActivity
 class TopMenuActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_top_fragment)
+        setContentView(R.layout.activity_joke_search_results)
     }
 }

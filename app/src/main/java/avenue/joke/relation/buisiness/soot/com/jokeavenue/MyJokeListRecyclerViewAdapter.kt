@@ -5,8 +5,6 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
-import avenue.joke.relation.buisiness.soot.com.jokeavenue.Animation.ResizeAnimation
 import avenue.joke.relation.buisiness.soot.com.jokeavenue.JokeAvenueRealm.JAJokeObject
 import avenue.joke.relation.buisiness.soot.com.jokeavenue.JokeListFragment.OnListFragmentInteractionListener
 
@@ -38,7 +36,7 @@ class MyJokeListRecyclerViewAdapter(
         Log.v(10.toString(), "onCreateViewHolder")
         var layoutId: Int
 
-        layoutId = R.layout.viewholder_joke_expansion
+        layoutId = R.layout.viewholder_joke_contents
 
         val view = LayoutInflater.from(parent.context).inflate(layoutId, parent, false)
         var viewHolder = JokeViewHolder(view)
