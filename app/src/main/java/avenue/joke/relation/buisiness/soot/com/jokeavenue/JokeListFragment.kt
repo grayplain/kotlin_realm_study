@@ -25,24 +25,6 @@ class JokeListFragment : Fragment() {
                               savedInstanceState: Bundle?): View? {
         val jokeListView = inflater.inflate(R.layout.fragment_jokelist_list, container, false)
 
-        val topJokeSearchView = activity?.findViewById<SearchView>(R.id.joke_searchview)
-
-        /*
-        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-            override fun onQueryTextSubmit(text: String?): Boolean {
-                // 検索キーが押下された
-                Log.d("hog", "submit text: $text")
-                return false
-            }
-
-            override fun onQueryTextChange(text: String?): Boolean {
-                // テキストが変更された
-                Log.d("hog", "change text: $text")
-                return false
-            }
-        })
-        */
-
         // Set the adapter
         if (jokeListView is RecyclerView) {
             with(jokeListView) {
