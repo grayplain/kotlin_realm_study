@@ -9,10 +9,9 @@ import avenue.joke.relation.buisiness.soot.com.jokeavenue.JokeAvenueRealm.JAJoke
 import avenue.joke.relation.buisiness.soot.com.jokeavenue.JokeListFragment.OnListFragmentInteractionListener
 
 class MyJokeListRecyclerViewAdapter(
-        // TODO: Realm のモデルを Entityとして直接使うのってアリらしい。
-        private val jokeLists: List<JAJokeObject>,
-        private var expandHolderFlags: BooleanArray,
-        private val mListener: OnListFragmentInteractionListener?)
+         val jokeLists: List<JAJokeObject>,
+         var expandHolderFlags: BooleanArray,
+         val mListener: OnListFragmentInteractionListener?)
     : RecyclerView.Adapter<JokeViewHolder>() {
 
     private val mOnClickListener: View.OnClickListener

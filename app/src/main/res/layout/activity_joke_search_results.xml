@@ -7,7 +7,7 @@
     android:layout_height="match_parent">
 
     <fragment
-        android:id="@+id/fragment"
+        android:id="@+id/joke_results_fragment"
         android:name="avenue.joke.relation.buisiness.soot.com.jokeavenue.JokeListFragment"
         android:layout_width="0dp"
         android:layout_height="0dp"
