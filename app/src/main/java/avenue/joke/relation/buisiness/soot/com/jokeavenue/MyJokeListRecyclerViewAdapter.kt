@@ -9,7 +9,7 @@ import avenue.joke.relation.buisiness.soot.com.jokeavenue.JokeAvenueRealm.JAJoke
 import avenue.joke.relation.buisiness.soot.com.jokeavenue.JokeListFragment.OnListFragmentInteractionListener
 
 class MyJokeListRecyclerViewAdapter(
-         val jokeLists: List<JAJokeObject>,
+         var jokeLists: List<JAJokeObject>,
          var expandHolderFlags: BooleanArray,
          val mListener: OnListFragmentInteractionListener?)
     : RecyclerView.Adapter<JokeViewHolder>() {

@@ -21,9 +21,9 @@ class JokeListFragment : Fragment() {
     // Realm 以外の DB ライブラリを使うこともあるだろうし。
     private var jokeResults = JokeDataFetcher().fetchMasterJokeData(word = "医師",category = "")
 
-
-    //TODO: なんとなくだが、わざわざアダプターをインスタンス変数として持つのは違うようなきがする。
     private var jokeListAdapter: MyJokeListRecyclerViewAdapter? = null
+
+
     //onCreateView の前に呼ばれるらしいが・・・。 onCreateView だけでいいんじゃないか？
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,24 +31,18 @@ class JokeListFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-        val jokeListView = inflater.inflate(R.layout.fragment_jokelist_list, container, false)
+        var jokeListView = inflater.inflate(R.layout.fragment_jokelist_list, container, false) as RecyclerView
 
-        // Set the adapter
-        if (jokeListView is RecyclerView) {
-            with(jokeListView) {
-                layoutManager = when {
-                    columnCount <= 1 -> LinearLayoutManager(context)
+        with(jokeListView) {
+            layoutManager = when {
+                columnCount <= 1 -> LinearLayoutManager(context)
                     else -> GridLayoutManager(context, columnCount)
-                }
-
-                jokeResults = JokeDataFetcher().fetchMasterJokeData(word = "",category = "")
-
-                adapter = MyJokeListRecyclerViewAdapter(jokeResults,
-                                                        BooleanArray(size = jokeResults.count()),
-                                                        listener)
-                jokeListAdapter = adapter as MyJokeListRecyclerViewAdapter
             }
+            jokeResults = JokeDataFetcher().fetchMasterJokeData(word = "",category = "")
+            jokeListAdapter = MyJokeListRecyclerViewAdapter(jokeResults, BooleanArray(size = jokeResults.count()), listener)
+            adapter = jokeListAdapter as MyJokeListRecyclerViewAdapter
         }
+
         return jokeListView
     }
 
@@ -60,7 +54,7 @@ class JokeListFragment : Fragment() {
     fun researchJokeList(word: String?) {
         word?.let {
             jokeResults = JokeDataFetcher().fetchMasterJokeData(word = word,category = "")
-            これでうまく更新されない・・・。
+            jokeListAdapter?.jokeLists = jokeResults
             jokeListAdapter?.notifyDataSetChanged()
         }
     }
