@@ -52,8 +52,8 @@ class MyJokeListRecyclerViewAdapter(
 
     override fun onBindViewHolder(holder: JokeViewHolder, position: Int) {
         Log.v(10.toString(), "onBindViewHolder")
-        val babar = jokeLists[position].jokeText ?: ""
-        holder.changeJokeText(babar)
+        //holder.changeJokeText(jokeLists[position].jokeText ?: "")
+        holder.changeJokeText(jokeLists[position].shapeJokeText() ?: "")
     }
 
     override fun getItemCount(): Int = jokeLists.count()

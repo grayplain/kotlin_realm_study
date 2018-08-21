@@ -17,4 +17,7 @@ open class JAJokeObject : RealmObject() {
     var jokeText: String? = null
     var category: Long? = null
 
+    fun shapeJokeText(): String? {
+        return jokeText?.replace("<br>", "\n\n")
+    }
 }
