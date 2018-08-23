@@ -3,48 +3,26 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:background="#e5e2e2">
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
+    <android.support.v7.widget.CardView
+        android:layout_width="368dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="24dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:contentDescription="@string/todo"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/jokeTextView"
-        app:layout_constraintVertical_bias="0.00999999"
-        app:srcCompat="@android:drawable/btn_star_big_on" />
-
-    <TextView
-        android:id="@+id/jokeTextView"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="32dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
-        android:text="無人島にアメリカ人とイギリス人の男が遭難して２年がたっていた。 イギリス人の男が言った、「このままじゃラチがあかない、イカダをつくろう。」 アメリカ人の男もこれに同意し、２人はイカダを作りはじめた。 一日かけてイカダは完成した、イギリス人が言った「よし！出発だ、島を出よう」 アメリカ人が答える　「え？遊ぶんじゃないの？」"
-        android:textAlignment="viewStart"
-        android:textSize="18sp"
-        android:textStyle="italic"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:cardCornerRadius="10dp"
+        app:contentPadding="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="0dp"
-        android:layout_height="1dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
-        app:srcCompat="@android:color/darker_gray" />
+        <TextView
+            android:id="@+id/jokeTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="無人島にアメリカ人とイギリス人の男が遭難して２年がたっていた。 イギリス人の男が言った、「このままじゃラチがあかない、イカダをつくろう。」 アメリカ人の男もこれに同意し、２人はイカダを作りはじめた。 一日かけてイカダは完成した、イギリス人が言った「よし！出発だ、島を出よう」 アメリカ人が答える　「え？遊ぶんじゃないの？」" />
+    </android.support.v7.widget.CardView>
 
 </android.support.constraint.ConstraintLayout>
