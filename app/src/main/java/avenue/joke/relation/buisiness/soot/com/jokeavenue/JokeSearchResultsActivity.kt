@@ -20,17 +20,12 @@ class JokeSearchResultsActivity : AppCompatActivity() {
 
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
 
-            //TODO: 内部処理は別で管理しぃ。
            override fun onQueryTextSubmit(text: String?): Boolean {
-                // 検索キーが押下された
                 jokeListFragment.researchJokeList(text)
-                Log.d("hog", "submit text: $text")
                 return true
             }
 
             override fun onQueryTextChange(text: String?): Boolean {
-                // テキストが変更された
-                Log.d("hog", "change text: $text")
                 return false
             }
         })

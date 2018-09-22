@@ -5,8 +5,6 @@ import android.support.v4.app.Fragment
 import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
-import android.support.v7.widget.SearchView
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -17,14 +15,10 @@ class JokeListFragment : Fragment() {
 
     private var listener: OnListFragmentInteractionListener? = null
 
-    //TODO: Fragment には Realm を意識させたくないので、できればインタフェース経由でデータをやりとりしたい。
-    // Realm 以外の DB ライブラリを使うこともあるだろうし。
-    private var jokeResults = JokeDataFetcher().fetchMasterJokeData(word = "医師",category = "")
+    private var jokeResults = JokeDataFetcher().fetchMasterJokeData(word = "ジョーク",category = "")
 
     private var jokeListAdapter: MyJokeListRecyclerViewAdapter? = null
 
-
-    //onCreateView の前に呼ばれるらしいが・・・。 onCreateView だけでいいんじゃないか？
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -60,7 +54,6 @@ class JokeListFragment : Fragment() {
     }
 
     interface OnListFragmentInteractionListener {
-        // TODO: Update argument type and name
-        //fun onListFragmentInteraction(item: DummyItem?)
+        //nop
     }
 }

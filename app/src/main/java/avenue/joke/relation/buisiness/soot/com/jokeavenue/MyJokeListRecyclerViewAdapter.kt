@@ -18,10 +18,7 @@ class MyJokeListRecyclerViewAdapter(
 
     init {
         mOnClickListener = View.OnClickListener { v ->
-            /*
-            val item = v.tag as DummyItem
-            mListener?.onListFragmentInteraction(item)
-            */
+            //nop
         }
     }
 
@@ -32,7 +29,6 @@ class MyJokeListRecyclerViewAdapter(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): JokeViewHolder {
-        Log.v(10.toString(), "onCreateViewHolder")
         var layoutId: Int
 
         layoutId = R.layout.viewholder_joke_contents
@@ -41,7 +37,7 @@ class MyJokeListRecyclerViewAdapter(
         var viewHolder = JokeViewHolder(view)
 
         view.setOnClickListener {
-            //FIXME: ここに直接タップイベント内部の処理を書くべきではない（こいつの責務外)
+            // nop
         }
         return viewHolder
     }
@@ -51,8 +47,6 @@ class MyJokeListRecyclerViewAdapter(
     }
 
     override fun onBindViewHolder(holder: JokeViewHolder, position: Int) {
-        Log.v(10.toString(), "onBindViewHolder")
-        //holder.changeJokeText(jokeLists[position].jokeText ?: "")
         holder.changeJokeText(jokeLists[position].shapeJokeText() ?: "")
     }
 
